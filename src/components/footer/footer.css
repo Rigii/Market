@@ -1,0 +1,64 @@
+
+.footerBox {
+    padding: 40px 20px;
+    display: inline-grid;
+    width: 240px;
+    height: 175px;
+    border: solid 1px lightgrey;
+    text-align: left;
+    margin: 1%;
+}
+
+.hot_offers {
+    font-family: "Raleway";
+    color: rgb(51, 51, 51);
+    text-align: left;
+    margin: 0 0 16px 0;
+}
+
+.footerBox p, li{
+    max-height: 35px;
+    font-size: 11px;
+    font-family: Ubuntu;
+    color: rgb(165, 164, 164);
+    margin: 0;
+}
+
+.offersList {
+    padding-left: inherit;
+}
+
+.offersList li {
+    list-style-image: url("http://localhost:8000/icons/triangle.png");
+    position: relative;
+    margin-top: 6px;
+}
+
+.offersList span {
+    line-height: 2px;
+    position: absolute;
+    top: 5px;
+}
+
+.communicationInfo {
+    margin-top: 10px;
+}
+
+.communicationInfoImg {
+    display: inline-grid;
+    float: left;
+}
+
+.communicationInfoImg img {
+    margin: 5px 0 5px 0;
+}
+
+.communicationInfoP {
+    margin: 5px 0 5px 0;
+}
+
+.communicationInfo p {
+    text-indent: 11px;
+    line-height: 19px;
+}
+

@@ -4,6 +4,6 @@ import logger from 'redux-logger'// промеж. ф-ия для вывода п
 import thunk from 'redux-thunk' // ф-ия для реализации асинхронных вызовов
 
 export default function configureStore(initialState) {
-const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
-return store
+    const store = createStore(rootReducer, initialState, applyMiddleware(thunk, logger))
+    return store
 }

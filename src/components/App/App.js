@@ -1,19 +1,85 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../../actions/PageActions.js';
+import PropTypes from 'prop-types';
 import './app.css';
-import RequestSelectionData from './../checkbox-container/RequestSelectionData.js'
-import D3Container from '../d3/D3Container'
+import Footer from '../footer/Footer.js';
+import ProductsComponents from '../products/ProductsComponents';
+import Preloader from '../../media/gifs/preloader.gif'
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            page: 1,
+            renderNum: 4
+        };
 
-	render() {
-		return (
-			<div className={'mainDiv'}>
-				<RequestSelectionData />
-				<svg id="line-chart" /><br />
-				<D3Container />
-			</div>
-		)
-	}
+        this.loadMoreProducts = this.loadMoreProducts.bind(this);
+        this.setProdRenderNum = this.setProdRenderNum.bind(this);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps !== this.props || nextState !== this.state) return true;
+        return false
+    }
+
+    setProdRenderNum() {
+        this.loadMoreProducts(4, 1);
+        this.setState(prevState => ({
+            renderNum: prevState.renderNum + 4 //(this.props.products.length - prevState.renderNum)
+        }))
+    }
+
+    loadMoreProducts(num, newPage) {
+        this.props.getProductsData('http://localhost:8000/list.php?page=' + this.state.page + '&per_page=' + num);
+        if (this.props.currentRequestStatus) {
+            this.setState(prevState => ({
+                page: prevState.page + newPage
+            }))
+        }
+    }
+
+    componentWillMount() {
+        this.loadMoreProducts(8, 2)
+    }
+
+    render() {
+        console.log(this.props.products.length);
+        console.log(this.state.renderNum);
+        let moreButton = this.state.renderNum < this.props.totalProductsNum ? //!==
+            <p className="button" onClick={this.setProdRenderNum}>LOAD MORE</p> : null;
+        let preloader =
+            this.state.renderNum > this.props.products.length && this.props.products.length !== this.props.totalProductsNum ?
+            <img src={Preloader} alt="preloader"/> : null;
+
+        if (this.props.products.length !== 0) {
+            return (
+                <div id={'mainDiv'}>
+                    <ProductsComponents productsData={this.props.products} renderNum={this.state.renderNum}/><br/>
+                    {preloader}<br/>
+                    {moreButton}<br/>
+                    <Footer/>
+                </div>
+            )
+        }
+        return null
+    }
 }
 
-export default App
+function mapDispatchToProps(dispatch) {
+    return {
+        getProductsData: bindActionCreators(actionCreators.getProductsData, dispatch)
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        products: state.productsInfo.products,
+        currentRequestStatus: state.productsInfo.currentRequestStatus,
+        totalProductsNum: state.productsInfo.totalProductsNum
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

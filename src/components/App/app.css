@@ -1,84 +1,43 @@
 
 html, body {
     margin: 0;
-    padding: 0;
 }
 
-.gist{  
-    overflow: hidden;
-    margin-left: 30px;
-    cursor: grab
+#root{
+    padding: 0 8.5% 0 8.5%;
+    background-color: lightgrey;
+    min-width: -webkit-fill-available;
+    min-width: -moz-available;
+    min-height: -webkit-fill-available;
+    position: absolute;
 }
 
-.gist:active {
-    cursor: grabbing
+#mainDiv {
+    min-height: -webkit-fill-available;
+    background-color: white;
+    text-align: center;
 }
 
-.axis--x .domain {
-   
-    stroke: none;
+.productsContainer {
+    width: 100%;
 }
 
-.axis--x .tick line {
-    stroke: grey;
-    opacity: 0.5;
-
+.button {
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    color: red;
+    margin-top: 3px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 2em;
+    border: solid 1px lightgrey;
 }
 
-.axis--x .tick text{
-    text-anchor: start;
+.footer {
+    display: inline-block;
+    width: 100%
 }
 
-.axis--y .tick line {
-    stroke: grey;
-    opacity: 0.5;
-    width: 10px;
-}
 
-div.tooltip {	
-    position: absolute;			
-    text-align: center;			
-    width:  fit-content;				
-    height: fit-content;					
-    padding: 5px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    			
-}
-.circle {
-    fill: white;
-}
-
-.zoom {
-    cursor: move;
-    fill: none;
-    pointer-events: all;
-  }
-
-  .checkBoxContainer{
-      display: -webkit-box;
-  }
-
-  .mainDiv{
-      margin: 10px;
-  }
-
-  .button{
-      width: 120px;
-      height: 30px;
-      background-color: rgb(74, 116, 13);
-      color: white;
-      margin-top: 3px;
-      text-align: center;
-      box-shadow: 1px 2px 3px 0px #808080;
-      border-radius: 2px;
-      cursor: pointer;
-      line-height: 2em
-
-  }
-
-  .axis--x{
-      overflow: hidden;
-  }

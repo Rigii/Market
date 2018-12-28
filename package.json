@@ -13,6 +13,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-image-palette": "^0.2.4",
+    "react-loader": "^2.4.5",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
