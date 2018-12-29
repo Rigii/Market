@@ -21,8 +21,7 @@ class App extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps !== this.props || nextState !== this.state) return true;
-        return false
+        return nextProps !== this.props || nextState !== this.state
     }
 
     setProdRenderNum() {
