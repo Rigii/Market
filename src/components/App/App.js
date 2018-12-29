@@ -45,8 +45,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props.products.length);
-        console.log(this.state.renderNum);
         let moreButton = this.state.renderNum < this.props.totalProductsNum ? //!==
             <p className="button" onClick={this.setProdRenderNum}>LOAD MORE</p> : null;
         let preloader =

@@ -1,21 +1,42 @@
+@font-face{
+    font-family: 'Raleway';
+    src: url("../../media/fonts/raleway/Raleway-Light.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Ubuntu';
+    src: url("../../media/fonts/ubuntu/Ubuntu-L.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html, body {
     margin: 0;
 }
 
 #root{
-    padding: 0 8.5% 0 8.5%;
     background-color: lightgrey;
     min-width: -webkit-fill-available;
     min-width: -moz-available;
     min-height: -webkit-fill-available;
+    min-height: -moz-available;
     position: absolute;
 }
 
 #mainDiv {
+    margin: 0 8.5% 0 8.5%;
     min-height: -webkit-fill-available;
+    min-height: -moz-available;
     background-color: white;
     text-align: center;
+}
+
+@media screen and (max-width: 415px) {
+    #mainDiv {
+        margin: 0;
+    }
 }
 
 .productsContainer {
@@ -31,8 +52,13 @@ html, body {
     margin-top: 3px;
     text-align: center;
     cursor: pointer;
-    line-height: 2em;
+    line-height: 1.9em;
     border: solid 1px lightgrey;
+    font-family: Ubuntu;
+}
+
+.button:hover {
+    background-color: #ff828a;
 }
 
 .footer {

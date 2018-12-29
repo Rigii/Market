@@ -9,7 +9,6 @@
 
 .mainItem {
     display: inline-block;
-    min-width: 24%;
     text-align: center;
     padding: 20px 0 20px 0;
 }
@@ -18,7 +17,6 @@
     width: 205px;
     height: 325px;
     position: relative;
-   /* margin: 20px 1% 20px 1%;*/
     margin: 0 2px 0 2px;
     display: inline-grid;
     overflow: visible;
@@ -30,31 +28,6 @@
 .itemCont:hover {
     box-shadow:  0 0 10px grey;
 }
-
-
-/*
-@media screen and (min-width: 1050px) and (max-width: 1350px) {
-    .itemCont {
-        margin: 20px calc((100% - 820px) / 10) 20px calc((100% - 820px) / 10);
-    }
-}
-
-@media screen and (min-width: 1351px) and (max-width: 1812px) {
-    .itemCont {
-        margin: 20px calc((100% - 1025px) / 12) 20px calc((100% - 1025px) / 12);
-    }
-}
-
-@media screen and (min-width: 1351px) {
-    .itemCont {
-        margin: 20px calc((100% - 1230px) / 14) 20px calc((100% - 1025px) / 14);
-    }
-}
-*/
-
-
-
-
 
 .imgCont {
     border: solid 1px lightgrey;
@@ -68,8 +41,6 @@
     text-align: initial;
     background-color: white;
 }
-
-
 
 .itemImg {
     height: 100%;
@@ -119,7 +90,15 @@
     font-family: Ubuntu;
 }
 
+.addBut{
+    color: red;
+    background-color: white;
+    border: solid 1px lightgrey;
+}
 
+.addBut:hover {
+    background-color: #ff828a;
+}
 
 .isSale {
     top: 40%;
@@ -131,7 +110,7 @@
     background-color: red;
     color: white;
     font-size: 13px;
-    font-family: Ubuntu;
+    font-family: Ubuntu bold;
 }
 
 .isNew {
@@ -145,7 +124,8 @@
     background-color: black;
     color: grey;
     font-size: 13px;
-    font-family: Ubuntu;
+    font-family: Ubuntu bold;
 }
+
 
 

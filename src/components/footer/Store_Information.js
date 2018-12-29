@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import location from '../../media/icons/location.png';
+import mail from '../../media/icons/mail.png';
+import phone from '../../media/icons/phone.png';
+import skype from '../../media/icons/skype.png';
 
 class StoreInformation extends Component {
 
@@ -9,10 +13,10 @@ class StoreInformation extends Component {
 
                 <div className="communicationInfo">
                     <div className="communicationInfoImg">
-                        <img src="http://localhost:8000/icons/location.png" alt="location"/>
-                        <img src="http://localhost:8000/icons/phone.png" alt="phone"/>
-                        <img src="http://localhost:8000/icons/mail.png" alt="mail"/>
-                        <img src="http://localhost:8000/icons/skype.png" alt="skype"/>
+                        <img src={location} alt="location"/>
+                        <img src={phone} alt="phone"/>
+                        <img src={mail} alt="mail"/>
+                        <img src={skype} alt="skype"/>
                     </div>
                     <div className="communicationInfoP">
                     <p>Lorem ipsum dolor sitamet</p><br/>

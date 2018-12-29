@@ -3,11 +3,8 @@ import './ItemStyle.css'
 
 class ProductContainer extends Component {
 
-    shouldComponentUpdate(nextProps){
-       return nextProps !== this.props
-    }
-
     render() {
+      //  console.log(this.props.item.img);
         let isSale = this.props.item.discountCost !== null ? <p className="isSale">SALE</p> : null;
         let isNew = this.props.item.new ? <p className="isNew">NEW</p> : null;
 
@@ -29,7 +26,7 @@ class ProductContainer extends Component {
                     <h4>{this.props.item.discountCost !== null ? '$' + this.props.item.cost : null} </h4>
                 </div>
                 <div className="buttonCont">
-                    <p className="itemBut" style={{color: 'red', backgroundColor: 'pink'}}><b>ADD TO CART</b></p>
+                    <p className="itemBut addBut"><b>ADD TO CART</b></p>
                     <p className="itemBut" style={{color: 'grey', backgroundColor: 'lightgrey'}}>VIEW</p>
                 </div>
             </div>
