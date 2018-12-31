@@ -20,7 +20,7 @@
     margin: 0 2px 0 2px;
     display: inline-grid;
     overflow: visible;
-    border: solid grey 1px;
+    border: solid lightgrey 1px;
     text-align: initial;
     animation: fade-in .8s ease;
 }

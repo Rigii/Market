@@ -5,7 +5,7 @@
    $page = isset($_GET['page']) ? $_GET['page'] : 1;
    $perPage = isset($_GET['per_page']) ? $_GET['per_page'] : 4;
 
-   sleep(3);
+   sleep(4);
 
    echo json_encode([
        'entities' => getItems($page, $perPage),

@@ -1,13 +1,29 @@
-
-
 .footerBox {
+    width: calc(100% /3);
+    margin: 0;
+    display: inherit;
+}
+
+@media screen and (max-width: 1140px) {
+    .footerBox {
+       width: calc(100% /2);
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .footerBox {
+        width: 100%;
+    }
+}
+
+.footerContentBox {
     padding: 40px 20px;
     display: inline-grid;
-    width: 240px;
+    width: 245px;
     height: 175px;
     border: solid 1px lightgrey;
     text-align: left;
-    margin: 1%;
+    margin: 33px 0;
 }
 
 .hot_offers {

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './app.css';
 import Footer from '../footer/Footer.js';
 import ProductsComponents from '../products/ProductsComponents';
-import Preloader from '../../media/gifs/preloader.gif'
+import Preloader from '../../media/gifs/EmbellishedPlayfulGarpike-small.gif'
 
 class App extends Component {
     constructor() {
@@ -27,7 +27,7 @@ class App extends Component {
     setProdRenderNum() {
         this.loadMoreProducts(4, 1);
         this.setState(prevState => ({
-            renderNum: prevState.renderNum + 4 //(this.props.products.length - prevState.renderNum)
+            renderNum: prevState.renderNum + 4
         }))
     }
 
@@ -49,7 +49,7 @@ class App extends Component {
             <p className="button" onClick={this.setProdRenderNum}>LOAD MORE</p> : null;
         let preloader =
             this.state.renderNum > this.props.products.length && this.props.products.length !== this.props.totalProductsNum ?
-            <img src={Preloader} alt="preloader"/> : null;
+                <img src={Preloader} alt="preloader" style={{borderRadius: '50%', height: '200px'}}/> : null;
 
         if (this.props.products.length !== 0) {
             return (
@@ -64,6 +64,13 @@ class App extends Component {
         return null
     }
 }
+
+App.propTypes = {
+    products: PropTypes.array,
+    currentRequestStatus: PropTypes.bool,
+    totalProductsNum: PropTypes.number,
+    getProductsData: PropTypes.func
+};
 
 function mapDispatchToProps(dispatch) {
     return {

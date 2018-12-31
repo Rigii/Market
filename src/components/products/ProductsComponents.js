@@ -1,19 +1,23 @@
 import React, {Component} from 'react';
 import ProductContainer from './ProductContainer.js';
+import PropTypes from 'prop-types';
 
 class ProductsComponents extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            mainItemWidth: this.getComponentWidth(window.innerWidth, null)
+            columnNum: this.getComponentWidth(null)
         };
     }
 
-    componentWillUpdate(nextProps){
-        if (nextProps.renderNum !== this.props.renderNum){
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps !== this.props || nextState.columnNum !== this.state.columnNum
+    }
+
+    componentWillUpdate(nextProps) {
+        if (nextProps.renderNum !== this.props.renderNum) {
             this.setState({
-                mainItemWidth: this.getComponentWidth(window.innerWidth, nextProps.renderNum)
+                columnNum: this.getComponentWidth(nextProps.renderNum)
             })
         }
     }
@@ -21,41 +25,50 @@ class ProductsComponents extends Component {
     windowResize() {
         window.onresize = (() => {
             return this.setState({
-                mainItemWidth: this.getComponentWidth(window.innerWidth, null)
+                columnNum: this.getComponentWidth(null)
             })
         });
     }
 
-    getComponentWidth(innerWidth, nextProps) {
+    getComponentWidth(nextProps) {
+        let innerWidth = (window.innerWidth / 100) * 63;
         let renderNum = nextProps !== null ? nextProps : this.props.renderNum;
-        let canRender = (((innerWidth / 100) * 63) / 205).toFixed();
-        return renderNum >= canRender ? 100 / canRender : 100 / renderNum;
+        let canRender = (innerWidth / 205).toFixed();
+        return renderNum >= canRender ? canRender : renderNum;
     }
 
     productMap() {
         if (this.props.productsData.length !== 0) {
             return this.props.productsData.map((item, i) => {
-                while (i < this.props.renderNum) {
-                    let key = null;
-                    for (let n = 0; n < item.title.length; n++) {
-                        key = key + item.title.charCodeAt(n)
-                    }
-                    return <ProductContainer key={key} item={item} componentWidth={this.state.mainItemWidth}/>
+                let itemDisplay = i >= this.props.renderNum ? 'none' : 'inline-block';
+                let key = null;
+                for (let n = 0; n < item.title.length; n++) {
+                    key = key + item.title.charCodeAt(n)
                 }
+                return <ProductContainer
+                    key={key}
+                    item={item}
+                    itemDisplay={itemDisplay}
+                />
             })
         }
         return null
     }
 
     render() {
-        console.log(this.props.productsData.length);
+        console.log(this.state.columnNum);
         this.windowResize();
         return (
-            <div className={'productsContainer'}>
+            <div className={'productsContainer'} style={{gridTemplateColumns: 'repeat('+this.state.columnNum+', 1fr)'}}>
                 {this.productMap()}
             </div>
         )
     }
 }
+
+ProductsComponents.propTypes = {
+    productsData: PropTypes.array,
+    renderNum: PropTypes.number
+};
 
 export default ProductsComponents
