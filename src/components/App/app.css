@@ -18,8 +18,7 @@ html, body {
 
 #root{
     background-color: lightgrey;
-    min-width: -webkit-fill-available;
-    min-width: -moz-available;
+    width: 100%;
     min-height: -webkit-fill-available;
     min-height: -moz-available;
     position: absolute;
@@ -42,7 +41,9 @@ html, body {
 
 .productsContainer {
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .button {

@@ -3,38 +3,9 @@ import ProductContainer from './ProductContainer.js';
 import PropTypes from 'prop-types';
 
 class ProductsComponents extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            columnNum: this.getComponentWidth(null)
-        };
-    }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps !== this.props || nextState.columnNum !== this.state.columnNum
-    }
-
-    componentWillUpdate(nextProps) {
-        if (nextProps.renderNum !== this.props.renderNum) {
-            this.setState({
-                columnNum: this.getComponentWidth(nextProps.renderNum)
-            })
-        }
-    }
-
-    windowResize() {
-        window.onresize = (() => {
-            return this.setState({
-                columnNum: this.getComponentWidth(null)
-            })
-        });
-    }
-
-    getComponentWidth(nextProps) {
-        let innerWidth = (window.innerWidth / 100) * 63;
-        let renderNum = nextProps !== null ? nextProps : this.props.renderNum;
-        let canRender = (innerWidth / 205).toFixed();
-        return renderNum >= canRender ? canRender : renderNum;
+    shouldComponentUpdate(nextProps) {
+        return nextProps !== this.props
     }
 
     productMap() {
@@ -56,10 +27,8 @@ class ProductsComponents extends Component {
     }
 
     render() {
-        console.log(this.state.columnNum);
-        this.windowResize();
         return (
-            <div className={'productsContainer'} style={{gridTemplateColumns: 'repeat('+this.state.columnNum+', 1fr)'}}>
+            <div className={'productsContainer'}>
                 {this.productMap()}
             </div>
         )

@@ -4,7 +4,6 @@ class Hot_Offers extends Component {
 
     render() {
         return (
-            <div className="footerBox">
                 <div className="footerContentBox">
                     <h4 className="hot_offers">HOT OFFERS</h4>
                     <p>
@@ -21,7 +20,6 @@ class Hot_Offers extends Component {
                         <li><span>Lorem ipsum dolor sit amet, consectetur</span></li>
                     </ul>
                 </div>
-            </div>
         )
     }
 }

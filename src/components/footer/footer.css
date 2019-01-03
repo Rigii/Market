@@ -1,19 +1,7 @@
-.footerBox {
-    width: calc(100% /3);
-    margin: 0;
-    display: inherit;
-}
-
-@media screen and (max-width: 1140px) {
-    .footerBox {
-       width: calc(100% /2);
-    }
-}
-
-@media screen and (max-width: 766px) {
-    .footerBox {
-        width: 100%;
-    }
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .footerContentBox {
@@ -33,7 +21,7 @@
     margin: 0 0 16px 0;
 }
 
-.footerBox p, li{
+.footerContentBox p, li{
     max-height: 35px;
     font-size: 11px;
     font-family: Ubuntu;
@@ -62,16 +50,21 @@
 }
 
 .communicationInfoImg {
+    position: relative;
     display: inline-grid;
+    display: -ms-inline-grid;
     float: left;
+    bottom: 4px;
 }
 
 .communicationInfoImg img {
-    margin: 5px 0 5px 0;
+    margin: 7px 0 7px 0;
+    width: 80%;
 }
 
 .communicationInfoP {
-    margin: 5px 0 5px 0;
+    position: absolute;
+    margin: 5px 0 5px 23px;
 }
 
 .communicationInfo p {

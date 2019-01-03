@@ -6,22 +6,15 @@
         opacity: 1;
     }
 }
-
-.mainItem {
-    display: inline-block;
-    text-align: center;
-    padding: 20px 0 20px 0;
-}
-
 .itemCont {
     width: 205px;
     height: 325px;
     position: relative;
-    margin: 0 2px 0 2px;
+    margin: 40px 4px 0 4px;
     display: inline-grid;
     overflow: visible;
     border: solid lightgrey 1px;
-    text-align: initial;
+    text-align: left;
     animation: fade-in .8s ease;
 }
 

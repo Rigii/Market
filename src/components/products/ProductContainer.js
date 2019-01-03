@@ -9,9 +9,7 @@ class ProductContainer extends Component {
         let isNew = this.props.item.new ? <p className="isNew">NEW</p> : null;
 
         return (
-            <div className="mainItem"
-                 style={{display: this.props.itemDisplay}}>
-                <div className='itemCont'>
+                <div className='itemCont'  style={{display: this.props.itemDisplay}}>
                     <div className="imgCont">
                         <img className="itemImg" src={'http://localhost:8000/' + this.props.item.img}
                              alt={this.props.item.title}/>
@@ -31,7 +29,6 @@ class ProductContainer extends Component {
                         <p className="itemBut" style={{color: 'grey', backgroundColor: 'lightgrey'}}>VIEW</p>
                     </div>
                 </div>
-            </div>
         )
     }
 }
