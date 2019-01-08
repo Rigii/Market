@@ -69,3 +69,8 @@ html, body {
     width: 100%;
 }
 
+.preloader{
+    border-radius: 50%;
+    height: 200px
+}
+
